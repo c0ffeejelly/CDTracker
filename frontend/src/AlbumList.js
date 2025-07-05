@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react";
 import axios from "axios";
+import AlbumSearch from "./AlbumSearch";
 
 const AlbumList = () => {
     const [albums, setAlbums] = useState([]);
@@ -13,6 +14,9 @@ const AlbumList = () => {
     return (
     <div>
         <h2> Albums </h2>
+        <div>
+        <AlbumSearch/>
+        </div>
         <ul>
             {albums.map(album => (
             <li key={album.id}>
