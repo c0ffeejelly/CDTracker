@@ -20,10 +20,21 @@ const AlbumSearch = ({ onSelect }) => {
    }, [query]);
 
    const handleSelect = (album) => {
-    //onSelect(album);
+    selectAlbum(album);
     setQuery("");
     setResults([]);
    };
+
+   const selectAlbum = (album) => {
+   let albumtitle = album.title.split("-");
+   let title = albumtitle[1];
+   let artist = albumtitle[0];
+   console.log("title: " + title);
+   console.log("artist: " + artist);
+    axios.post('http://localhost:8080/api/albums', {
+    title: title.trim(),
+    artist: artist.trim()})
+    };
 
    return(
     <div>
